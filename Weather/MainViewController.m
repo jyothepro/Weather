@@ -193,7 +193,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-		return MIN([[Manager sharedManager].hourlyForecast count], 6) + 1;
+		return MIN([[Manager sharedManager].hourlyForecast count], 12) + 1;
 	}
 	
 	return MIN([[Manager sharedManager].dailyForecast count], 6) + 1;
