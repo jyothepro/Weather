@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D8573D13-FEC3-4C34-982E-BD27DC9F5AE5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Weather</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>89749D5E-061F-4B6F-8D39-6DE4F3355C2F</key>
+		<string>ssh://github.com/jyothepro/Weather.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Weather.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>89749D5E-061F-4B6F-8D39-6DE4F3355C2F</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jyothepro/Weather.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>89749D5E-061F-4B6F-8D39-6DE4F3355C2F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>89749D5E-061F-4B6F-8D39-6DE4F3355C2F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Weather</string>
+		</dict>
+	</array>
+</dict>
+</plist>
