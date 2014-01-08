@@ -111,7 +111,7 @@
 	hiloLabel.backgroundColor = [UIColor clearColor];
 	hiloLabel.textColor = [UIColor whiteColor];
 	hiloLabel.text = @"0° / 0°";
-	hiloLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:28];
+	hiloLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:24];
 	[header addSubview:hiloLabel];
 	
 	// top
@@ -154,7 +154,10 @@
 													   RACObserve([Manager sharedManager], currentCondition.tempLow)]
 
 											  reduce:^(NSNumber *hi, NSNumber *low) {
-												  return [NSString  stringWithFormat:@"%.0f° / %.0f°",hi.floatValue,low.floatValue];
+												  return [NSString  stringWithFormat:@"%.0f°F(%.0f°C) / %.0f°F(%.0f°C)",hi.floatValue,
+														  [self farenhiteToCelcius: hi.floatValue],
+														  low.floatValue,
+														  [self farenhiteToCelcius: low.floatValue]];
 											  }]
 							deliverOn:RACScheduler.mainThreadScheduler];
 	
@@ -246,22 +249,28 @@
     cell.imageView.image = nil;
 }
 
+-(float) farenhiteToCelcius:(float)farenhite {
+	return (farenhite  -  32) * 5/9;
+}
+
 - (void)configureHourlyCell:(UITableViewCell *)cell weather:(WeatherCondition *)weather {
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
     cell.textLabel.text = [self.hourlyFormatter stringFromDate:weather.date];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0f°",weather.temperature.floatValue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0f°F(%.0f°C)",weather.temperature.floatValue, [self farenhiteToCelcius: weather.temperature.floatValue]];
     cell.imageView.image = [UIImage imageNamed:[weather imageName]];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)configureDailyCell:(UITableViewCell *)cell weather:(WeatherCondition *)weather {
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:18];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14];
     cell.textLabel.text = [self.dailyFormatter stringFromDate:weather.date];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0f° / %.0f°",
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.0f°F(%.0f°C) / %.0f°F(%.0f°C)",
 								 weather.tempHigh.floatValue,
-								 weather.tempLow.floatValue];
+								 [self farenhiteToCelcius: weather.tempHigh.floatValue],
+								 weather.tempLow.floatValue,
+								 [self farenhiteToCelcius: weather.tempLow.floatValue]];
     cell.imageView.image = [UIImage imageNamed:[weather imageName]];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
